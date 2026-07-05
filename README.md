@@ -121,3 +121,18 @@ sorting behavior:
 filtering:
 conflict detection:
 recurring task:
+
+Testing PawPal+:
+These tets cover: 
+
+
+(.venv) caitlynbennett@Estelles-MacBook-Pro pawpal-starter % python -m pytest
+========================================================================= test session starts =========================================================================
+platform darwin -- Python 3.13.5, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/caitlynbennett/ai_engineering1101/module3/pawpal-starter
+plugins: anyio-4.14.0
+collected 32 items                                                                                                                                                    
+
+tests/test_pawpal.py ................................                                                                                                           [100%]
+
+========================================================================= 32 passed in 0.02s ====
