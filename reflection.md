@@ -6,6 +6,13 @@
 
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
+Priority (enum) — LOW / MEDIUM / HIGH. Using an enum instead of raw strings makes sorting reliable and prevents typos like "hihg".
+Owner — basic info, total available_minutes for the day, and a list of preferences (the constraint inputs from the README). Owns the tasks.
+Pet — name, species, breed, age. Pure data; matches the owner/pet info inputs already in app.py:42-44.
+CareTask — the core unit: title, duration_minutes, priority (the README's minimum requirements), plus category and recurring for the "Smarter Scheduling" table. priority_rank() converts the enum to a number for sorting.
+Scheduler — the brain. Three methods map directly to the README's scheduling table: sort_tasks (by priority/duration), filter_tasks (skip tasks when time runs out), and build_plan (assemble the ordered result).
+ScheduledItem — a task placed at a start_time/end_time, with a reason field so you can explain why it was scheduled there.
+DailyPlan — the output: the ordered items, any skipped tasks, and explain() to satisfy the "explain the reasoning" requirement.
 
 **b. Design changes**
 
