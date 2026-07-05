@@ -70,6 +70,7 @@ class Owner:
 
     def __init__(self, name: str, available_minutes: int,
                  preferences: list[str] | None = None) -> None:
+        """Create an owner with a name, daily time budget, and preferences."""
         self.name = name
         self.available_minutes = available_minutes
         self.preferences = preferences if preferences is not None else []
@@ -116,6 +117,7 @@ class Scheduler:
     """Builds a daily plan from a set of care tasks."""
 
     def __init__(self, owner: Owner) -> None:
+        """Create a scheduler bound to the given owner."""
         self.owner = owner
 
     @property

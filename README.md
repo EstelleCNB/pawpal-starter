@@ -70,6 +70,16 @@ Sample test output:
 # Paste your pytest output here
 ```
 
+(.venv) caitlynbennett@Estelles-MacBook-Pro pawpal-starter % python -m pytest
+======================================================================================== test session starts =========================================================================================
+platform darwin -- Python 3.13.5, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/caitlynbennett/ai_engineering1101/module3/pawpal-starter
+plugins: anyio-4.14.0
+collected 2 items                                                                                                                                                                                    
+
+tests/test_pawpal.py ..                                                                                                                                                                        [100%]
+
+
 ## 📐 Smarter Scheduling
 
 > Fill in once you've implemented scheduling logic.
@@ -92,3 +102,13 @@ Describe your app in numbered steps so a reader can follow along without watchin
 5. <!-- Add more steps as needed -->
 
 **Screenshot or video** *(optional)*: <!-- Insert a screenshot or link to a demo video here -->
+
+
+Sample output:
+Today's Schedule
+========================================
+Plan for 2026-07-05 (110 min scheduled):
+  08:00-08:45  Morning walk (for Rex) — HIGH priority, matches a preference; 120 min were free
+  08:45-09:00  Feed breakfast (for Milo) — HIGH priority; 75 min were free
+  09:00-09:20  Brush coat (for Milo) — MEDIUM priority; 60 min were free
+  09:20-09:50  Play fetch (for Rex) — LOW priority, matches a preference; 40 min were free
