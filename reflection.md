@@ -31,6 +31,7 @@ DailyPlan — the output: the ordered items, any skipped tasks, and explain() to
 **b. Tradeoffs**
 
 - Describe one tradeoff your scheduler makes.
+
 - Why is that tradeoff reasonable for this scenario?
 
 ---

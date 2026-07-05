@@ -77,7 +77,9 @@ rootdir: /Users/caitlynbennett/ai_engineering1101/module3/pawpal-starter
 plugins: anyio-4.14.0
 collected 2 items                                                                                                                                                                                    
 
-tests/test_pawpal.py ..                                                                                                                                                                        [100%]
+tests/test_pawpal.py ..                                                                                                                                                                                                                                                                                                                                      [100%]
+
+========================================================================================= 2 passed in 0.02s ==========================================================================================
 
 
 ## 📐 Smarter Scheduling
@@ -112,3 +114,10 @@ Plan for 2026-07-05 (110 min scheduled):
   08:45-09:00  Feed breakfast (for Milo) — HIGH priority; 75 min were free
   09:00-09:20  Brush coat (for Milo) — MEDIUM priority; 60 min were free
   09:20-09:50  Play fetch (for Rex) — LOW priority, matches a preference; 40 min were free
+
+
+Smarter Scheduling section:
+sorting behavior:
+filtering:
+conflict detection:
+recurring task:
