@@ -1,0 +1,95 @@
+classDiagram
+    %% PawPal+ — pet care planning assistant
+    %% Final UML — reflects the implemented pawpal_system.py
+
+    class Priority {
+        <<enumeration>>
+        LOW
+        MEDIUM
+        HIGH
+    }
+
+    class Recurrence {
+        <<enumeration>>
+        NONE
+        DAILY
+        WEEKLY
+        +step() timedelta
+    }
+
+    class Owner {
+        +str name
+        +int available_minutes
+        +list~str~ preferences
+        +list~Pet~ pets
+        +list~CareTask~ tasks
+        +add_pet(pet) None
+        +add_task(task, pet) None
+        +remove_task(task) None
+        +all_tasks(include_completed) list~CareTask~
+        +tasks_for(pet) list~CareTask~
+    }
+
+    class Pet {
+        +str name
+        +str species
+        +str breed
+        +int age
+    }
+
+    class CareTask {
+        +str title
+        +int duration_minutes
+        +Priority priority
+        +str category
+        +Recurrence recurrence
+        +bool completed
+        +Pet pet
+        +time preferred_time
+        +date due_date
+        +recurring() bool
+        +priority_rank() int
+        +mark_done() None
+    }
+
+    class Scheduler {
+        +Owner owner
+        +int same_category_gap_minutes
+        +int DEFAULT_CATEGORY_GAP_MINUTES
+        +available_minutes() int
+        +preferences() list~str~
+        +sort_tasks(tasks) list~CareTask~
+        +sort_by_time(tasks) list~CareTask~
+        +filter_by(tasks, completed, pet_name) list~CareTask~
+        +filter_tasks(tasks) list~CareTask~
+        +detect_conflicts(tasks) list~str~
+        +complete_task(task) CareTask
+        +build_plan(tasks, start_time, plan_date) DailyPlan
+    }
+
+    class ScheduledItem {
+        +CareTask task
+        +time start_time
+        +time end_time
+        +str reason
+    }
+
+    class DailyPlan {
+        +date plan_date
+        +list~ScheduledItem~ items
+        +list~CareTask~ skipped
+        +int unused_minutes
+        +total_minutes() int
+        +explain() str
+    }
+
+    Owner "1" --> "0..*" Pet : owns
+    Owner "1" --> "0..*" CareTask : manages
+    CareTask --> Priority : has
+    CareTask --> Recurrence : repeats by
+    CareTask "0..*" --> "0..1" Pet : for
+    Scheduler --> Owner : plans for
+    Scheduler ..> CareTask : reads
+    Scheduler ..> DailyPlan : produces
+    DailyPlan "1" --> "0..*" ScheduledItem : contains
+    ScheduledItem --> CareTask : wraps
